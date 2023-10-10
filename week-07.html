@@ -1,0 +1,148 @@
+<h1 id="exercises-on-python-classes">Exercises on Python classes</h1>
+<h2 id="exercise">Exercise</h2>
+<p>Write a Python program to create a <code>Vehicle</code> class with
+<code>name</code>, <code>seats</code> and <code>trunk_space</code>
+instance attributes.</p>
+<p>Once you do, this code</p>
+<!-- 
+```python
+class Vehicle:
+
+    def __init__(self, name, seats, trunk_space):
+        self.name = name
+        self.seats = seats
+        self.trunk_space = trunk_space
+
+``` -->
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>car <span class="op">=</span> Vehicle(<span class="st">&quot;Dodge&quot;</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;The </span><span class="sc">{</span>car<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> has </span><span class="sc">{</span>car<span class="sc">.</span>seats<span class="sc">}</span><span class="ss"> seats and </span><span class="sc">{</span>car<span class="sc">.</span>trunk_space<span class="sc">}</span><span class="ss"> units of trunk space&#39;</span>)</span></code></pre></div>
+<p>should produce this output:</p>
+<pre><code>The Dodge has 2 seats and 1 units of trunk space</code></pre>
+<h2 id="exercise-1">Exercise</h2>
+<p>Add a <code>__str__</code> method to the class to that this code</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>car <span class="op">=</span> Vehicle(<span class="st">&quot;Jeep&quot;</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(car)</span></code></pre></div>
+<p>produces this output:</p>
+<pre><code>Jeep</code></pre>
+<h2 id="exercise-2">Exercise</h2>
+<p>Add a method <code>at_capacity</code>, which returns
+<code>True</code> if the Vehicle is full (or overfull) and
+<code>False</code> otherwise. The method should take two arguments:
+<code>passengers</code> and <code>suitcases</code>. Passengers take up
+one seat each. Suitcases take up one seat or one trunk space unit - and
+you cannot put passengers in the trunk.</p>
+<!-- 
+```python
+class Vehicle:
+
+    fuel = 'gasoline'
+
+    def __init__(self, name, seats, trunk_space):
+        self.name = name
+        self.seats = seats
+        self.trunk_space = trunk_space
+
+    def __str__(self):
+        return self.name
+
+    def at_capacity(self, people, suitcases):
+        seats_left = self.seats - people
+        trunk_units_left = self.trunk_space - suitcases
+        return seats_left < 0 or seats_left + trunk_units_left < 0
+
+class Bus(Vehicle):
+
+    fuel = 'diesel'
+
+    def at_capacity(self, people, suitcases):
+        return people > self.seats or suitcases > self.seats
+
+``` -->
+<p>Once you do, this code</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>car <span class="op">=</span> Vehicle(<span class="st">&quot;Volvo&quot;</span>, <span class="dv">4</span>, <span class="dv">3</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;It is </span><span class="sc">{</span>car<span class="sc">.</span>at_capacity(<span class="dv">5</span>, <span class="dv">1</span>)<span class="sc">}</span><span class="ss"> that the </span><span class="sc">{</span>car<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> is at/over capacity&#39;</span>)</span></code></pre></div>
+<p>should produce this output:</p>
+<pre><code>It is True that the Volvo is at/over capacity</code></pre>
+<h2 id="exercise-3">Exercise</h2>
+<p>Create a <code>Bus</code> class that inherits from the
+<code>Vehicle</code> class. A <code>Bus</code> is different from a
+<code>Vehicle</code> in that passengers can sit with a suitcase in their
+lap, but cannot put any in the trunk. So add an <code>at_capacity</code>
+method that overrides the <code>Vehicle</code> method of the same name,
+so that this difference is taken into account.</p>
+<p>Once you do, this code:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>school_bus <span class="op">=</span> Bus(<span class="st">&quot;School bus&quot;</span>, <span class="dv">22</span>, <span class="dv">10</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;The </span><span class="sc">{</span>school_bus<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> has </span><span class="sc">{</span>school_bus<span class="sc">.</span>seats<span class="sc">}</span><span class="ss"> seats and </span><span class="sc">{</span>school_bus<span class="sc">.</span>trunk_space<span class="sc">}</span><span class="ss"> units of trunk space&#39;</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;It is </span><span class="sc">{</span>school_bus<span class="sc">.</span>at_capacity(<span class="dv">22</span>, <span class="dv">11</span>)<span class="sc">}</span><span class="ss"> that the </span><span class="sc">{</span>school_bus<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> is at/over capacity&#39;</span>)</span></code></pre></div>
+<p>should produce this output:</p>
+<pre><code>The School bus has 22 seats and 10 units of trunk space
+It is False that the School bus is at/over capacity</code></pre>
+<h2 id="exercise-4">Exercise</h2>
+<p>Define a property that must have the same value for every class
+instance (object)</p>
+<p>Define a class attribute <code>fuel</code> to the
+<code>Vehicle</code> and <code>Bus</code> classes with a default values
+<code>"gasoline"</code> and <code>"diesel"</code>. I.e., Every Bus
+should use diesel and every Vehicle uses gasoline.</p>
+<p>Once you do, this code:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tour_bus <span class="op">=</span> Bus(<span class="st">&quot;Dodge&quot;</span>, <span class="dv">30</span>, <span class="dv">20</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>convertible <span class="op">=</span>  Vehicle(<span class="st">&quot;Saab&quot;</span>, <span class="dv">4</span>, <span class="dv">1</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;The </span><span class="sc">{</span>tour_bus<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> uses </span><span class="sc">{</span>tour_bus<span class="sc">.</span>fuel<span class="sc">}</span><span class="ss">&#39;</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&#39;The </span><span class="sc">{</span>convertible<span class="sc">.</span>name<span class="sc">}</span><span class="ss"> uses </span><span class="sc">{</span>convertible<span class="sc">.</span>fuel<span class="sc">}</span><span class="ss">&#39;</span>)</span></code></pre></div>
+<p>should produce this output:</p>
+<pre><code>The Dodge uses diesel
+The Saab uses gasoline</code></pre>
+<h2 id="exercise-5">Exercise</h2>
+<p>Look up the <code>super()</code> builtin function. What attributes
+does this class have?</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Truck(Vehicle):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, passengers, trunk_units, trailer_units):</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, passengers, trunk_units)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.trailer_units <span class="op">=</span> trailer_units</span></code></pre></div>
+<p>What will this print:</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sixteen_wheeler <span class="op">=</span> Truck(<span class="st">&#39;Man&#39;</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">542</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sixteen_wheeler)</span></code></pre></div>
+<h2 id="exercise-6">Exercise</h2>
+<p>Add a <code>load</code> method to this function:</p>
+<!-- 
+```python
+class AutoTransport(Vehicle):
+
+    def __init__(self, name, passengers, trunk_units):
+        super().__init__(name, passengers, trunk_units)
+        self.loaded_cars = []
+
+    def __str__(self):
+        return f"{self.name} with: {', '.join(map(str, self.loaded_cars))}"
+
+    def load(self, car):
+        self.loaded_cars.append(car)
+```
+ -->
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> AutoTransport(Vehicle):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, passengers, trunk_units):</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(name, passengers, trunk_units)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.loaded_cars <span class="op">=</span> []</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f&quot;</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss"> with: </span><span class="sc">{</span><span class="st">&#39;, &#39;</span><span class="sc">.</span>join(<span class="bu">map</span>(<span class="bu">str</span>, <span class="va">self</span>.loaded_cars))<span class="sc">}</span><span class="ss">&quot;</span></span></code></pre></div>
+<p>Once you do, this code:</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>auto_trans <span class="op">=</span> AutoTransport(<span class="st">&#39;Man&#39;</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>auto_trans.load(Vehicle(<span class="st">&#39;Mustang&#39;</span>, <span class="dv">4</span>, <span class="dv">1</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>auto_trans.load(Vehicle(<span class="st">&#39;Charger&#39;</span>, <span class="dv">4</span>, <span class="dv">1</span>))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>auto_trans.load(Vehicle(<span class="st">&#39;Corvette&#39;</span>, <span class="dv">4</span>, <span class="dv">1</span>))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>auto_trans.load(Vehicle(<span class="st">&#39;Challenger&#39;</span>, <span class="dv">4</span>, <span class="dv">1</span>))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(auto_trans)</span></code></pre></div>
+<p>should produce this output:</p>
+<pre><code>Man with: Mustang, Charger, Corvette, Challenger</code></pre>
