@@ -146,3 +146,36 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a h
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(auto_trans)</span></code></pre></div>
 <p>should produce this output:</p>
 <pre><code>Man with: Mustang, Charger, Corvette, Challenger loaded</code></pre>
+<h2 id="exercise-8">Exercise 8</h2>
+<p>Now you have learned a little about classes, you can try to create
+your own classes.</p>
+<p>Create a class called DNA that takes a string as input. The class
+should have the following methods:</p>
+<ul>
+<li><code>__init__</code> that takes a string as input and stores it as
+an attribute</li>
+<li><code>count_nucleotides</code> that counts the number of each
+nucleotide in the string and returns a dictionary with the counts</li>
+<li><code>gc_content</code> that calculates the GC content of the string
+and returns the value</li>
+<li><code>codons</code> that returns a list of codons in the string</li>
+<li><code>translate</code> that translates the string into a protein
+sequence and returns the protein sequence as a string</li>
+<li><code>reverse_complement</code> that returns the reverse complement
+of the string</li>
+</ul>
+<p>A subclass called RNA that inherits from DNA. The RNA class should
+have the following methods:</p>
+<ul>
+<li><code>__init__</code> that takes a either a DNA string or an RNA
+string as input and stores it (translated) to/as an RNA string as an
+attribute</li>
+<li><code>reverse_complement</code> (updated to RNA) that returns the
+reverse complement of the string</li>
+<li><code>codons</code> (updated to RNA) that returns a list of codons
+in the string</li>
+<li><code>translate</code> (updated to RNA; RNA has U instead of T but
+you can just translate right back to use the old table) that translates
+the string into a protein sequence and returns the protein sequence as a
+string.</li>
+</ul>

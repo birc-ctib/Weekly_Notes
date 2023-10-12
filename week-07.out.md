@@ -190,9 +190,24 @@ should produce this output:
 
     Man with: Mustang, Charger, Corvette, Challenger loaded
 
+## Exercise 8
+Now you have learned a little about classes, you can try to create your own classes. 
 
+Create a class called DNA that takes a string as input. The class should have the following methods:
 
+- `__init__` that takes a string as input and stores it as an attribute
+- `count_nucleotides` that counts the number of each nucleotide in the string and returns a dictionary with the counts
+- `gc_content` that calculates the GC content of the string and returns the value
+- `codons` that returns a list of codons in the string
+- `translate` that translates the string into a protein sequence and returns the protein sequence as a string
+- `reverse_complement` that returns the reverse complement of the string
 
+A subclass called RNA that inherits from DNA. The RNA class should have the following methods:
+
+- `__init__` that takes a either a DNA string or an RNA string as input and stores it (translated) to/as an RNA string as an attribute
+- `reverse_complement` (updated to RNA) that returns the reverse complement of the string
+- `codons` (updated to RNA) that returns a list of codons in the string 
+- `translate` (updated to RNA; RNA has U instead of T but you can just translate right back to use the old table) that translates the string into a protein sequence and returns the protein sequence as a string.
 
 [command-line-ex]: https://github.com/birc-ctib/command-lines-and-pipes
 [intro-to-github-ex]: https://github.com/birc-ctib/intro-to-git-and-github
