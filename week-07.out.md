@@ -1,8 +1,7 @@
 
 # Exercises on Python classes
 
-
-## Exercise
+## Exercise 1
 
 Write a Python program to create a `Vehicle` class with `name`, `seats` and `trunk_space` instance attributes.
 
@@ -29,7 +28,7 @@ should produce this output:
     The Dodge has 2 seats and 1 units of trunk space
 
 
-## Exercise
+## Exercise 2
 
 Add a `__str__` method to the class to that this code
 
@@ -42,9 +41,9 @@ produces this output:
 
     Jeep
 
-## Exercise
+## Exercise 3
 
-Add a method  `at_capacity`, which returns `True` if the Vehicle is full (or overfull) and `False` otherwise. The method should take two arguments: `passengers` and `suitcases`. Passengers take up one seat each. Suitcases take up one seat or one trunk space unit - and you cannot put passengers in the trunk.
+Add a method  `at_capacity`, which returns `True` if the Vehicle is overfull and `False` otherwise. The method should take two arguments: `passengers` and `suitcases`. Passengers take up one seat each. Suitcases take up one seat or one trunk space unit - and you cannot put passengers in the trunk.
 
 <!-- 
 ```python
@@ -78,15 +77,15 @@ Once you do, this code
 
 ```python
 car = Vehicle("Volvo", 4, 3)
-print(f'It is {car.at_capacity(5, 1)} that the {car.name} is at/over capacity')
+print(f'It is {car.at_capacity(5, 1)} that the {car.name} is over capacity')
 ```
 
 should produce this output:
 
-    It is True that the Volvo is at/over capacity
+    It is True that the Volvo is over capacity
 
 
-## Exercise
+## Exercise 4
 
 Create a `Bus` class that inherits from the `Vehicle` class. A `Bus` is different from a `Vehicle` in that passengers can sit with a suitcase in their lap, but cannot put any in the trunk. So add an `at_capacity` method that overrides the `Vehicle` method of the same name, so that this difference is taken into account.
 
@@ -95,16 +94,16 @@ Once you do, this code:
 ```python
 school_bus = Bus("School bus", 22, 10)
 print(f'The {school_bus.name} has {school_bus.seats} seats and {school_bus.trunk_space} units of trunk space')
-print(f'It is {school_bus.at_capacity(22, 11)} that the {school_bus.name} is at/over capacity')
+print(f'It is {school_bus.at_capacity(22, 11)} that the {school_bus.name} is over capacity')
 ```
 
 should produce this output:
 
     The School bus has 22 seats and 10 units of trunk space
-    It is False that the School bus is at/over capacity
+    It is False that the School bus is over capacity
 
 
-## Exercise
+## Exercise 5
 
 Define a property that must have the same value for every class instance (object)
 
@@ -125,7 +124,7 @@ should produce this output:
     The Dodge uses diesel
     The Saab uses gasoline
 
-## Exercise
+## Exercise 6
 
 Look up the `super()` builtin function. What attributes does this class have?
 
@@ -144,7 +143,7 @@ sixteen_wheeler = Truck('Man', 2, 2, 542)
 print(sixteen_wheeler)
 ```
 
-## Exercise
+## Exercise 7
 
 Add a `load` method to this function:
 
@@ -172,7 +171,7 @@ class AutoTransport(Vehicle):
         self.loaded_cars = []
 
     def __str__(self):
-        return f"{self.name} with: {', '.join(map(str, self.loaded_cars))}"
+        return f"{self.name} with: {', '.join(map(str, self.loaded_cars))} loaded"
 ```
 
 Once you do, this code:
@@ -189,7 +188,7 @@ print(auto_trans)
 
 should produce this output:
 
-    Man with: Mustang, Charger, Corvette, Challenger
+    Man with: Mustang, Charger, Corvette, Challenger loaded
 
 
 
